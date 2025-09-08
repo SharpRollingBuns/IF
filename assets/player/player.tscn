@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://d4mp5emewys2r"]
+
+[ext_resource type="Script" uid="uid://cssgptykr1h1k" path="res://assets/player/move.gd" id="1_d6veg"]
+
+[sub_resource type="Gradient" id="Gradient_h6syq"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_v2miy"]
+gradient = SubResource("Gradient_h6syq")
+fill_from = Vector2(0, 0.0229358)
+fill_to = Vector2(0.0458716, 0.0366972)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d6veg"]
+size = Vector2(65, 65)
+
+[node name="Player" type="CharacterBody2D"]
+position = Vector2(532, 196)
+slide_on_ceiling = false
+script = ExtResource("1_d6veg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_v2miy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 1)
+shape = SubResource("RectangleShape2D_d6veg")
+
+[node name="DashTimer" type="Timer" parent="."]
+
+[node name="DashCooldownTimer" type="Timer" parent="."]
