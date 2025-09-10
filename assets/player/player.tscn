@@ -13,7 +13,6 @@ fill_to = Vector2(0.0458716, 0.0366972)
 size = Vector2(65, 65)
 
 [node name="Player" type="CharacterBody2D"]
-position = Vector2(532, 196)
 slide_on_ceiling = false
 script = ExtResource("1_d6veg")
 
@@ -27,3 +26,6 @@ shape = SubResource("RectangleShape2D_d6veg")
 [node name="DashTimer" type="Timer" parent="."]
 
 [node name="DashCooldownTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
+[connection signal="timeout" from="DashCooldownTimer" to="." method="_on_dash_cooldown_timer_timeout"]
